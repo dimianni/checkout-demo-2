@@ -18,6 +18,12 @@ const PaymentFrame = () => {
 
             const paymentResult = await response.json();
             console.log(paymentResult);
+            if (paymentResult.requiresRedirect && paymentResult.redirectLink) {
+                // Redirect the user to the 3D Secure page
+                window.location.href = paymentResult.redirectLink;
+            } else {
+                // Handle other outcomes (e.g., direct success, error messages)
+            }
             // alert('Payment processed successfully!');
             toast.success('Payment processed successfully!', { duration: 4000 })
         } catch (error) {

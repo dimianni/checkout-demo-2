@@ -15,8 +15,13 @@ export default async function handler(req, res) {
                     token, // The token received from the client-side Frames
                 },
                 processing_channel_id: process.env.PROCESSING_CHANNEL_ID,
+                "3ds": { // Enclose 3ds in quotes
+                    enabled: true
+                },
                 currency: 'EUR',
                 amount: 1999,
+                success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/payment-success`,
+                failure_url: `${process.env.NEXT_PUBLIC_BASE_URL}/payment-failure`,
             });
 
             // Send the payment response back to the client
