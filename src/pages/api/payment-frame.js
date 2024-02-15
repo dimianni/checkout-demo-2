@@ -14,6 +14,7 @@ export default async function handler(req, res) {
                     type: 'token',
                     token, // The token received from the client-side Frames
                 },
+                processing_channel_id: process.env.PROCESSING_CHANNEL_ID,
                 currency: 'EUR',
                 amount: 1999,
             });
