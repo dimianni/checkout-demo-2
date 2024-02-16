@@ -4,6 +4,7 @@ import PaymentGiropay from '@/components/PaymentOptions/PaymentGiropay'
 import Cart from '@/components/Cart'
 import { Tab } from '@headlessui/react'
 import CheckWorkflow from '@/components/CheckWorkflow'
+import HostedPage from '@/components/PaymentOptions/HostedPage'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -57,7 +58,7 @@ export default function Home() {
                     <PaymentFrame />
                   </div>
                   <div className='my-4 pb-4'>
-                    <PaymentGiropay />
+                    <HostedPage />
                   </div>
                 </Tab.Panel>
                 <Tab.Panel>

@@ -15,6 +15,7 @@ export default async function handler(req, res) {
                 name: "John Smith",
                 email: "john.smith@example.com",
             },
+            processing_channel_id: process.env.PROCESSING_CHANNEL_ID,
             success_url: "https://example.com/payments/success",
             failure_url: "https://example.com/payments/failure",
         };
