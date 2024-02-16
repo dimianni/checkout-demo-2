@@ -4,12 +4,14 @@ import { Checkout } from 'checkout-sdk-node';
 // Get Started: https://www.checkout.com/docs/get-started
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const { token } = req.body; // Get the token from the request body
+
+        const { token, preferred_scheme } = req.body; // Get the token from the request body
 
         const cko = new Checkout(process.env.SECRET_KEY);
 
         try {
-            const paymentResponse = await cko.payments.request({
+
+            let paymentRequest = {
                 source: {
                     type: 'token',
                     token, // The token received from the client-side Frames
@@ -21,8 +23,17 @@ export default async function handler(req, res) {
                 currency: 'EUR',
                 amount: 1999,
                 success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/payment-success`,
-                failure_url: `${process.env.NEXT_PUBLIC_BASE_URL}/payment-failure`,
-            });
+                failure_url: `${process.env.NEXT_PUBLIC_BASE_URL}/payment-failure`
+            }
+
+            // Conditionally add the processing field if preferred_scheme exists and is not empty
+            if (preferred_scheme && preferred_scheme.trim() !== '') {
+                paymentRequest.processing = {
+                    preferred_scheme
+                };
+            }
+
+            const paymentResponse = await cko.payments.request(paymentRequest);
 
             // Send the payment response back to the client
             res.status(200).json(paymentResponse);

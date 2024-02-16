@@ -8,12 +8,14 @@ const PaymentFrame = () => {
     // Function to handle tokenization success
     const handleCardTokenized = async (event) => {
         try {
+
+            console.log(event);
             const response = await fetch('/api/payment-frame', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ token: event.token }),
+                body: JSON.stringify({ token: event.token, preferred_scheme: event.preferred_scheme }),
             });
 
             const paymentResult = await response.json();
@@ -38,7 +40,9 @@ const PaymentFrame = () => {
             <Frames
                 config={{
                     publicKey: 'pk_sbox_kuzru7zyphwbnsi7nrzxy7wfmef', // Use your own public key
-                    localization:'DE-DE'
+                    localization:'EN-GB',
+                    frameSelector: '.card-frame',
+                    schemeChoice: true
                 }}
                 cardTokenized={handleCardTokenized}
             >
