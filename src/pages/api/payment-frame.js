@@ -17,7 +17,7 @@ export default async function handler(req, res) {
                     token, // The token received from the client-side Frames
                 },
                 processing_channel_id: process.env.PROCESSING_CHANNEL_ID,
-                "3ds": { // Enclose 3ds in quotes
+                "3ds": {
                     enabled: true
                 },
                 currency: 'EUR',

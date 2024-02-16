@@ -15,6 +15,9 @@ export default async function handler(req, res) {
                     name: "John Smith",
                     email: "john.smith@example.com"
                 },
+                "3ds": {
+                    enabled: true
+                },
                 allow_payment_methods: ["card", "ideal"],
                 processing_channel_id: process.env.PROCESSING_CHANNEL_ID,
                 success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/payment-success`,
@@ -33,6 +36,18 @@ export default async function handler(req, res) {
 
             const paymentData = await paymentResponse.json();
             console.log(paymentData);
+
+            // Always getting:
+            //
+            // warnings: [
+            //     {
+            //         code: 'payment_method_unavailable',
+            //         value: 'ideal',
+            //         description: 'Payment method ideal is not configured.'
+            //     }
+            // ]
+            //
+            // WORKS WITH KEYS PROVIDED IN THE FIRST TEST
 
             // If the request is successful, redirect the customer to the giropay page
             if (paymentData._links && paymentData._links.redirect) {
