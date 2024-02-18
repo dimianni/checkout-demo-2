@@ -3,7 +3,7 @@ export default async function handler(req, res) {
 
         try {
             const body = {
-                amount: 1000,
+                amount: 1999,
                 currency: "EUR",
                 reference: "ORD-123A",
                 billing: {

@@ -49,7 +49,7 @@ export default function Admin(){
                         </div>
 
                         <div className='w-1/2'>
-                            <p>See webhooks <Link rel="noopener noreferrer" target="_blank" className='text-blue-500 underline' href="https://webhook.site/f35dd95f-095a-4f61-b2e6-6b19285b243f">here</Link>.</p>
+                            <p>See webhooks <Link rel="noopener noreferrer" target="_blank" className='text-blue-900 underline' href="https://webhook.site/f35dd95f-095a-4f61-b2e6-6b19285b243f">here</Link>.</p>
                         </div>
                     </div>
                     <Toaster position="bottom-center" />

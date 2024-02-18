@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function ProductCard() {
     return (
-        <div className="bg-green-500 p-6 rounded">
+        <div className="bg-slate-200 p-6 rounded">
             <div className="flex justify-between items-start">
                 <div className='min-w-[40%] bg-white p-2 flex justify-center items-center rounded-lg'>
                     <figure>

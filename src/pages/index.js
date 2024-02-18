@@ -1,14 +1,7 @@
-import PaymentComponents from '@/components/PaymentOptions/PaymentComponents'
 import PaymentFrame from '@/components/PaymentOptions/PaymentFrame'
-import PaymentGiropay from '@/components/PaymentOptions/PaymentGiropay'
 import Cart from '@/components/Cart'
-import { Tab } from '@headlessui/react'
 import CheckWorkflow from '@/components/CheckWorkflow'
 import HostedPage from '@/components/PaymentOptions/HostedPage'
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Home() {
   return (
@@ -20,54 +13,23 @@ export default function Home() {
         <div className='w-full flex justify-between items-start'>
           <section className='w-1/2'>
             <h1 className="w-full text-center text-2xl font-bold mb-4">Please select your payment option:</h1>
-
-            <Tab.Group>
-              <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1 mb-8">
-                <Tab 
-                  key="main"
-                  className={({ selected }) =>
-                    classNames(
-                      'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
-                      'ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
-                      selected
-                        ? 'bg-white text-black shadow'
-                        : 'text-gray-500 hover:bg-white/[0.12] hover:text-gray-800'
-                    )
-                  }
-                >
-                  Main
-                </Tab>
-                <Tab
-                  key="alternative"
-                  className={({ selected }) =>
-                    classNames(
-                      'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
-                      'ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
-                      selected
-                        ? 'bg-white text-black shadow'
-                        : 'text-gray-500 hover:bg-white/[0.12] hover:text-gray-800'
-                    )
-                  }
-                  >
-                  Alternative
-                </Tab>
-              </Tab.List>
-              <Tab.Panels>
-                <Tab.Panel>
-                  <div className='my-4 pb-4 border-b-2 border-gray-300'>
-                    <PaymentFrame />
-                  </div>
-                  <div className='my-4 pb-4'>
-                    <HostedPage />
-                  </div>
-                </Tab.Panel>
-                <Tab.Panel>
-                  <div className='my-4 pb-4'>
-                    <PaymentComponents />
-                  </div>
-                </Tab.Panel>
-              </Tab.Panels>
-            </Tab.Group>
+            <div className='bg-slate-200 rounded-xl p-8'>
+              <div className='italic'>
+                <p>
+                  Use one of the following test cards:
+                </p>
+                <div>
+                  <p>Cartes Bancaires or Visa (3DS2 frictionless flow): 4010056200000018 08/28 100</p>
+                  <p>Cartes Bancaires or Mastercard (3DS2 challenge flow): 5137210000000158 08/28 100</p>
+                </div>
+              </div>
+            </div>
+            <div className='my-4 pb-4 border-b-2 border-gray-300'>
+              <PaymentFrame />
+            </div>
+            <div className='my-4 pb-4'>
+              <HostedPage />
+            </div>
           </section>
           <section className='w-2/5'>
             <Cart />

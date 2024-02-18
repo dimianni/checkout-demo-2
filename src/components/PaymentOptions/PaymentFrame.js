@@ -50,7 +50,7 @@ const PaymentFrame = () => {
                 <CardFrame />
 
                 <button
-                    className='border-none rounded px-4 py-2 text-white font-medium w-full bg-[#8C9E6E] shadow-[0_1px_3px_0_rgba(19,57,94,0.4)] hover:bg-[#323416] active:bg-[#0b2a49] cursor-pointer'
+                    className='border-none rounded px-4 py-2 text-white font-medium w-full bg-grey shadow-[0_1px_3px_0_rgba(19,57,94,0.4)] hover:bg-[#272932] active:bg-[#0b2a49] cursor-pointer'
                     onClick={() => {
                         Frames.submitCard();
                     }}
